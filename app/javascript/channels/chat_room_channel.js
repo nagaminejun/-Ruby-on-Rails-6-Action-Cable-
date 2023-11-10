@@ -16,15 +16,15 @@ const appChatRoom = consumer.subscriptions.create("ChatRoomChannel", {
   },
 
   // ==========ここから編集する==========
-  speak: function(chat_message) {
+  speak: function (chat_message) {
     return this.perform('speak', { chat_message: chat_message });
   }
   // ==========ここまで編集する==========
 });
 
 // ==========ここから追加する==========
-if(/chat_rooms/.test(location.pathname)) {
-  $(document).on("keydown", ".chat-room__message-form_textarea", function(e) {
+if (/chat_rooms/.test(location.pathname)) {
+  $(document).on("keydown", ".chat-room__message-form_textarea", function (e) {
     if (e.key === "Enter") {
       appChatRoom.speak(e.target.value);
       e.target.value = '';
@@ -33,3 +33,4 @@ if(/chat_rooms/.test(location.pathname)) {
   })
 }
 // ==========ここまで追加する==========
+// アラートのポップアップ表示まで
